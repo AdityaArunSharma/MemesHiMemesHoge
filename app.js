@@ -2,6 +2,7 @@ require('dotenv/config');
 const express = require('express')
 const app = express()
 const bodyParser = require("body-parser")
+const Promise = require("bluebird")
 var fs = require('fs');
 var path = require('path');
 var mongoose = require('mongoose')
@@ -16,6 +17,8 @@ mongoose.connect(process.env.MONGO_URL,
     });
 
 var multer = require('multer');
+
+const randomKeyWordList = ["akshay kumar" , "bezzati", "paisa", "doge" , "Mirzapur" , "jal"];
  
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -29,9 +32,11 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 var imgModel = require('./model');
+const { resolve } = require('path');
+const { reject } = require('bluebird');
 
 app.get("/",function(req,res){
-    res.render("home.ejs")
+    res.render("home.ejs",{randomKeyWord: randomKeyWordList[Math.floor(Math.random()*randomKeyWordList.length)]})
 })
 
 app.get("/result",function(req,res){
@@ -52,23 +57,34 @@ app.get("/result",function(req,res){
 
 app.post("/result",function(req,res){
     const searchKeywords = (req.body.searchKeyword).toLowerCase();
+    var array = searchKeywords.match(/[^\s]+/g);
 
-    if(searchKeywords.length == 0){
+    var list=[]
+
+    if(array.length == 0){
         res.redirect("/");
         return;
     }
 
-    imgModel.find({tags: searchKeywords},function(err,items){
-        if(err)
-        {
-            res.send("Error 404");
-            return;
+    imgModel.find({},function(err,result){
+        if(!err){
+            for(var x = 0;x<result.length;x++){                
+                for(var y=0;y<array.length;y++){                    
+                    if(result[x].tags.includes(array[y])) {
+                        console.log("found")
+                        list = list.concat(result[x])
+                        break;
+                    }
+                }
+            }            
+            res.render("result",{items:list})
         }
-        else
-        {           
-            res.render("result",{items: items});
-        }
+        
     })
+
+    
+
+    
 })
 
 app.post("/upload",upload.single('image'),function(req,res,next){

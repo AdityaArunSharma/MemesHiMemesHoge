@@ -22,8 +22,12 @@
                 <div class="row img-row">
                         <% for(var x=0; x<3 && index<items.length ; x++,index++) {    %>                                       
                                         <div class="col-sm ">
-                                                <img class="img-size" src="data:image/<%=items[index].img.contentType%>;base64,
-                                                <%=items[index].img.data.toString('base64')%>">                       
+                                                <a href="data:image/<%=items[index].img.contentType%>;base64,
+                                                        <%=items[index].img.data.toString('base64')%>" download="meme.png" >
+                                                        <img class="img-size" src="data:image/<%=items[index].img.contentType%>;base64,
+                                                        <%=items[index].img.data.toString('base64')%>" alt="meme">                       
+                                                </a>
+                                                
                                         </div>                                                                                                                               
                         <% } %>
                 </div>  
