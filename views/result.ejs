@@ -1,0 +1,39 @@
+<%- include("partials/header")-%>
+
+<div>
+        <form action="/result" method="POST">
+                <div class="container h-100">
+                  <div class="d-flex justify-content-center h-100">
+                    <div class="searchbar">
+                      <input class="search_input" type="text" name="searchKeyword" placeholder="Keywords">
+                      <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
+                      
+                    </div>
+                  </div>
+                </div>
+                <p1 hidden name="pageName">Result</p1>
+        </form>
+</div>
+
+<div class="container result-div">
+        <% var index = 0; %>
+        
+        <% while(index < items.length) { %>
+                <div class="row img-row">
+                        <% for(var x=0; x<3 && index<items.length ; x++,index++) {    %>                                       
+                                        <div class="col-sm ">
+                                                <img class="img-size" src="data:image/<%=items[index].img.contentType%>;base64,
+                                                <%=items[index].img.data.toString('base64')%>">                       
+                                        </div>                                                                                                                               
+                        <% } %>
+                </div>  
+        <% } %>
+
+
+
+</div>
+
+
+<%- include("partials/footer") -%>
+
+<!-- 

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Memes hi Memes hoge</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d1c248410b.js" crossorigin="anonymous"></script>
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="/js/script.js"></script>
+    
+    <div class="header" >
+
+        <div class="logo" onclick="location.href='/';">
+            <h1>Memes-hi-Memes-hoge</h1>
+        </div>
+
+        <div class="upload-logo">
+            <button class="upload-btn" data-toggle="modal" data-target="#exampleModalCenter">
+                <i class="fas fa-upload fa-lg"></i>
+                <span class="logo-text"> Upload Meme</span>
+            </button>
+
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Upload New Meme</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                        
+                            <div class="file-upload">                                                                                      
+                                <div class="image-upload-wrap">
+                                  <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" id="image" name="image" value="" required />
+                                  <div class="drag-text">
+                                    <h3>Drag and drop a file or select add Image</h3>
+                                  </div>
+                                </div>                            
+                            </div>  
+
+                            <div class="file-upload-content">
+                                <img class="file-upload-image" src="#" alt="your image" />
+                                <div class="image-title-wrap">
+                                  <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                                </div>
+                            </div>
+
+                            <label for="exampleFormControlTextarea1">Enter tags</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Seperate tags using spaces" name="tags" rows="3"></textarea>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Upload!</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            </form>
+
+              <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+              </script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js">
+              </script>
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js">
+              </script>            
+        </div>
+        
+
+    </div>
+  </head>
+
+  
+
+
+  <body>

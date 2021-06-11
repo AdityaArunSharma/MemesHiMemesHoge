@@ -1,0 +1,19 @@
+<%- include("partials/header")-%>
+
+    <div id="page-content">
+    <div class="container home-logo"></div>
+    <form action="/result" method="POST">
+      <div class="container h-100">
+        <div class="d-flex justify-content-center h-100">
+          <div class="searchbar searchbar-home">
+            <input class="search_input" type="text" name="searchKeyword" placeholder="Keywords">
+            <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+      <p1 hidden name="pageName">Home</p1>
+    </form>
+    </div>
+
+
+<%- include("partials/footer") -%>
