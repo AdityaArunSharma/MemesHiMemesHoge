@@ -103,7 +103,10 @@ app.post("/upload",upload.single('image'),function(req,res,next){
 
 })
 
-var port = process.env.PORT || '3000'
-app.listen(3000,function(req,res){
-    console.log("Server started at port "+port)
+var port = process.env.PORT;
+if(port == null || port ==""){
+    port = 3000;
+}
+app.listen(port,function(req,res){
+    console.log("Server started")
 })
