@@ -61,7 +61,7 @@ app.post("/result",function(req,res){
 
     var list=[]
 
-    if(array.length == 0){
+    if(array == null || array.length == 0){
         res.redirect("/");
         return;
     }
