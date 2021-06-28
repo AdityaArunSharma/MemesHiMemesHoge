@@ -19,21 +19,48 @@
         <% var index = 0; %>
         
         <% while(index < items.length) { %>
-                <div class="row img-row">
+                <div class="row img-row d-flex justify-content-center">
                         <% for(var x=0; x<3 && index<items.length ; x++,index++) {    %>                                       
-                                        <div class="col-sm ">
-                                                <a href="data:image/<%=items[index].img.contentType%>;base64,
-                                                        <%=items[index].img.data.toString('base64')%>" download="meme.png" >
-                                                        <img class="img-size" src="data:image/<%=items[index].img.contentType%>;base64,
-                                                        <%=items[index].img.data.toString('base64')%>" alt="meme">                       
-                                                </a>
+                                        <div class="col-sm column ">
+                                                <div class="result-card">
+                                                        
+                                                                <img class="img-size" src="data:image/<%=items[index].img.contentType%>;base64,
+                                                                <%=items[index].img.data.toString('base64')%>" alt="meme">                       
+                                                        
+                                                        <div class="meme-menu">
+
+                                                                <% if(liked[index]==0){ %>
+
+                                                                        <i onclick="handleLike(this,0,'<%=items[index]._id%>')" id="likeButton" class="icon like-btn far fa-heart"></i>
+
+                                                                <% } else{ %>                                                                
+
+                                                                        <i onclick="handleLike(this,1,'<%=items[index]._id%>')" id="likeButton" class="icon like-btn fas fa-heart"></i>
+
+                                                                <% } %>
+
+                                                                
+                                                                
+
+
+
+                                                                <a class="download-a"
+                                                                 href="data:image/<%=items[index].img.contentType%>;base64,
+                                                                        <%=items[index].img.data.toString('base64')%>" download="meme.png" >
+                                                                <i class="icon fas fa-arrow-down"></i>
+                                                                </a>
+
+
+                                                        </div>
+                                                </div>
+                                                
                                                 
                                         </div>                                                                                                                               
                         <% } %>
                 </div>  
         <% } %>
 
-
+        <script src="/js/handleLike.js"></script>
 
 </div>
 

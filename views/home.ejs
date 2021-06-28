@@ -1,7 +1,75 @@
 <%- include("partials/header")-%>
 
+    
+        
+    
+    <%if(logged_in == "false") { %>
+      <form method="post" action="/google">
+        <button type="submit"
+            class="login-btn btn btn-warning"
+            href="/google">  
+            Login
+        </button>        
+      </form>  
+      
+
+    <% } else { %>
+
+      <button data-toggle="modal" data-target="#exampleModalCenter2"
+              class="login-btn btn btn-warning"
+              >  
+        Profile
+      </button>
+
+      <div class=" modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-container modal-dialog modal-dialog-centered" role="document">
+
+            <div class="modal-dimensions modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">              
+                  <div class="modal-profile-pic">
+                    <img class="modal-profile-pic-img" src="<%=imgSource%>">
+                  </div>
+                  <div class="modal-profile-details">
+                    <p1 class="profile-name-tag">Name  : <%=profileName%></p1>
+                    <br>
+                    <p1 class="profile-name-tag">Email : 
+                        <div class="profile-email-tag">
+                          <%=profileEmail%>
+                        </div>                       
+                    </p1>
+                    <br>
+                    <p1 class="profile-name-tag">Likes : <%=totalLikes%></p1>
+                  </div>                                                                            
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <form action="/logout" method="post">
+                    <button type="submit" class="btn btn-primary">Logout</button>
+                  </form>                                      
+                </div>
+            </div>
+        </div>
+
+      </div>
+    
+    
+    <% } %>
+    
+
+
+    
+
     <div id="page-content">
-    <div class="container home-logo"></div>
+    <div class="container home-logo">
+      <img alt="logo" class="background-img" src="/images/background.jpg">
+    </div>
     <form action="/result" method="POST">
       <div class="container h-100">
         <div class="d-flex justify-content-center h-100">

@@ -18,11 +18,15 @@
     font-family: 'Gochi Hand', cursive;
     margin-left: 3%;       
     position: relative;
-    margin-top: 15px;
-    cursor: pointer;
-    width: 400px;
+    margin-top: 3vh;
+    cursor: pointer;    
+    width: 40vw;
     /* background-color: red; */
     float: left;
+}
+
+.logo-txt{
+  font-size: 3vw;
 }
 
 .header {
@@ -41,12 +45,27 @@
     height: 40px;
     /* background-color: yellow; */
     float: right;
-    margin-top: 25px;
-    margin-right: 20px;
+    margin-top: 3vh;
+    margin-right: 1vw;
 
 }
-.logo-text {
+.upload-meme-text {
     font-family: 'Satisfy', cursive;
+    font-size: 1em;
+}
+
+@media screen and (max-width: 600px) {
+
+  .logo-txt{
+    font-size: 5vw;
+  }
+
+}
+
+.login-btn {
+  float: right;
+  margin-right: 5vh;
+  background-color: #ffbd9b;
 }
 
 body
@@ -62,23 +81,43 @@ body
 
 .home-logo
 {
-    background: url("/images/background.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    width: 35%;
-	height: 30%;		
+
+  /* background: url("/images/background.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat; */
+  /* width: 1vw;
+	height: 2vh;	
 	position: absolute;
 	top:0;
 	bottom: 0;
 	left: 0;
 	right: 0;  	
 	margin: auto;
-    margin-top: 12%;
-    border-radius: 35px;
+  margin-top: 25vh;
+  border-radius: 35px; */
+  /* background-color: red; */
+  width: 47vw;
+  margin-top: 15vh;
+  
+}
+
+.background-img{
+  width:100%;
+  height:100%;
+  border-radius: 4%;
+}
+
+@media screen and (max-width: 600px) {
+
+  .home-logo{
+    width: 20em;
+    height: 10em;
+  }
 }
 
 .searchbar-home {
-  margin-top: 30%;
+  margin-top: 5vh;
+  position: relative;
 }
 
 .searchbar{
@@ -103,9 +142,25 @@ body
 
     .searchbar:hover > .search_input{
     padding: 0 10px;
-    width: 450px;
+    width: 18em;
     caret-color:red;
     transition: width 0.4s linear;
+    }
+
+    @media screen and (max-width: 600px) {
+
+      .search_input{
+        color: rgb(248, 248, 248);
+        border: 0;
+        outline: 0;
+        background: none;
+        width: 18em;
+        caret-color:transparent;
+        line-height: 40px;
+        
+        }
+
+      
     }
 
     .searchbar:hover > .search_icon{
@@ -113,6 +168,7 @@ body
     color: #e74c3c;
     }
 
+    
     .search_icon{
     height: 40px;
     width: 40px;
@@ -148,6 +204,76 @@ body
     float: right;    
 }
 
+.modal-container {  
+  width: 60%;
+  height: 8vh;
+  margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+
+.modal-profile-pic {
+
+  float: left;
+  height: 30vh;  
+  width:  25vh;
+  
+
+}
+
+.modal-profile-details {
+
+  float: right;
+  
+  height: 30vh;  
+  width: 34vh;
+  
+}
+
+.profile-name-tag{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 100%;
+}
+
+@media screen and (max-width: 600px) {
+
+  .profile-name-tag{
+    font-size: 1em;
+  }
+
+  .modal-profile-pic {
+
+    float: left;
+    height: 30vh;  
+    width:  25vh;
+    margin-left: 18%;
+
+    
+  
+  }
+  
+
+  .modal-profile-details{
+    /* background-color: red; */
+    float: left;
+    margin-top: 1em;
+    margin-left: 10%;
+  }
+
+}
+
+.profile-email-tag{
+  font-size: 80%;
+  display: inline-block;
+}
+.modal-profile-pic-img {
+  width: 100%;
+  height: 100%;
+}
 
 .file-upload {
     background-color: #ffffff;
@@ -264,7 +390,7 @@ body
   
 .img-size {
   height: 30vh;
-  width: 45vh;
+  width: 22vw;
 }
 
 .result-div {
@@ -274,4 +400,63 @@ body
 
 .img-row {
   margin-top: 5%;
+}
+
+.meme-menu {
+  width: 22vw;
+  height: 3vh;
+  margin-left: 5%;
+  margin-top: 2%;
+}
+
+.download-a{
+  color: inherit;
+}
+
+.like-btn {
+  padding-right: 2%;
+}
+
+.result-card {
+  box-shadow: 0 3px 20px  rgba(0, 0, 0, 0.842);
+  transition: 0.3s;
+  height: 34vh;
+  width: 22vw;
+  border-radius: 15px;
+  margin-top: 5vh;
+}
+
+.icon {
+  font-size: 1em;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    margin-left: 5vw;
+  }
+
+  .result-card{
+    height: 34vh;
+    width: 80vw;
+    margin-top: 4em;
+  }
+
+  .meme-menu{
+
+    /* height: 34vh;
+    width: 26em; */
+
+    width: 100%;
+
+
+  }
+
+  .img-size{
+
+    /* height: 34vh;
+    width: 26em; */
+
+    width: 100%;
+  }
 }

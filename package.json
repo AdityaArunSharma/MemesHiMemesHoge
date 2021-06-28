@@ -2,13 +2,21 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "body-parser": "^1.19.0",
+    "connect-redis": "^6.0.0",
+    "cookie-session": "^1.4.0",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "favicon": "^0.0.2",
     "mongodb": "^3.6.9",
     "mongoose": "^5.12.13",
     "multer": "^1.4.2",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-google-oauth2": "^0.2.0",
+    "redis": "^3.1.2",
+    "serve-favicon": "^2.5.0"
   },
   "name": "memes-hi-memes-hoge",
   "version": "1.0.0",
