@@ -50,7 +50,7 @@ mongoose.connect(getEnv.DB(),
 
 var multer = require('multer');
 
-const randomKeyWordList = ["akshay kumar" , "bezzati", "paisa", "doge" , "Mirzapur" , "jal"];
+const randomKeyWordList = ["akshay kumar" , "bezzati", "paisa", "doge" , "Mirzapur" , "jal","liked memes"];
  
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -147,6 +147,39 @@ app.post("/result",function(req,res){
         return;
     }
 
+    if(array.length == 2 && (array[0] == "liked" && array[1]=="memes") ){
+        if(array[0] == "liked" && array[1]=="memes")
+        {
+            
+
+            if(!req.session.isLoggedIn)
+            {
+                res.redirect("/");
+                return ;
+            }
+            
+            liked_ids = []
+
+            userModel.findOne({email: req.session.email},function(err,result){
+                if(!err){
+                    
+                    imgModel.find({_id: result.liked},function(err,result2){
+                        var liked = [];
+                        for(var x=0;x<result2.length;x++){
+                            liked.push(1);
+                        }
+                        
+                        res.render("result",{items:result2,liked: liked})
+                        return;
+                    });
+                }
+            })
+
+            
+        }
+    }
+    else
+    {
     imgModel.find({},function(err,result){
         if(!err){
             for(var x = 0;x<result.length;x++){                
@@ -186,6 +219,7 @@ app.post("/result",function(req,res){
         }
         
     })
+    }
 
 
 
