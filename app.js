@@ -86,12 +86,31 @@ app.get("/",function(req,res){
         logged_in = "true";
     }
 
-    res.render("home.ejs",{ logged_in: logged_in ,
-                            profileName: req.session.name,
-                            profileEmail: req.session.email,
-                            imgSource: req.session.img,
-                            totalLikes: 0,
-                           randomKeyWord: randomKeyWordList[Math.floor(Math.random()*randomKeyWordList.length)]})
+    if(logged_in == "true"){
+        userModel.findOne({email: req.session.email},function(err,result){
+            if(!err)
+            {
+                res.render("home.ejs",{ logged_in: logged_in ,
+                    profileName: req.session.name,
+                    profileEmail: req.session.email,
+                    imgSource: req.session.img,
+                    totalLikes: result.liked.length,
+                   randomKeyWord: randomKeyWordList[Math.floor(Math.random()*randomKeyWordList.length)]})
+            }
+        })
+    }
+    
+    else
+    {
+        res.render("home.ejs",{ logged_in: logged_in ,
+            profileName: req.session.name,
+            profileEmail: req.session.email,
+            imgSource: req.session.img,
+            totalLikes: 0,
+           randomKeyWord: randomKeyWordList[Math.floor(Math.random()*randomKeyWordList.length)]})
+    }
+
+    
 })
 
 app.get("/result",function(req,res){
